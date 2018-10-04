@@ -16,11 +16,28 @@ time_remaining = 240
 dir_name = os.path.dirname(__file__)
 
 def play_endsound():
+    """
+    Play a sound to indicate the timer has completed.
+    """
     sound_file = os.path.join(dir_name, "done.wav")
     os.system("aplay {} --q -N -d 4 &".format(sound_file))
 
 
 def progress_timeout(progress_bar):
+    """
+    Update the progress of the timer on a timeout tick.
+
+    Parameters
+    ----------
+    progress_bar : ProgressBar
+        The UI progress bar object
+
+    Returns
+    -------
+    bool
+        True if continuing timer, False if done.
+
+    """
     global time_remaining, time_total
     time_remaining -= 1
     new_val = 1 - (time_remaining / time_total)
