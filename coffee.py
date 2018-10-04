@@ -16,9 +16,7 @@ time_remaining = 240
 dir_name = os.path.dirname(__file__)
 
 def play_endsound():
-    """
-    Play a sound to indicate the timer has completed.
-    """
+    """ Play a sound to indicate the timer has completed. """
     sound_file = os.path.join(dir_name, "done.wav")
     os.system("aplay {} --q -N -d 4 &".format(sound_file))
 
